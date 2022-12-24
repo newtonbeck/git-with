@@ -18,17 +18,16 @@ Example:
     git-with bilbo gandalf
     """)
 
-def introduce():
-    print("Introducing new people")
+def introduce(alias, name, email):
+    users.introduce(alias, name, email)
 
 def add():
-    users.read()
     print("Add people to the current coding session")
 
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
-            case "introduce": introduce()
+            case "introduce": introduce(sys.argv[2], sys.argv[3], sys.argv[4])
             case _: add()
     else:
         help()
