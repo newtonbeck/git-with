@@ -26,5 +26,5 @@ git-without bilbo.baggins
 ### Coding alone again
 
 ```shell
-git-without
+git-without everyone
 ```

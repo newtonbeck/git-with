@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import sys
+
+def help():
+    print("Help")
+
+def everyone():
+    print("Coding alone now")
+
+def remove():
+    print("Removing people from the current coding session")
+
+def main():
+    if len(sys.argv) > 1:
+        match sys.argv[1]:
+            case "everyone": everyone()
+            case _: remove()
+    else:
+        help()
+
+if __name__ == "__main__":
+    main()
