@@ -1,7 +1,30 @@
 #!/usr/bin/env python3
+import sys
+
+def help():
+    print("Help")
+
+def add():
+    print("Adding")
+
+def remove():
+    print("Removing")
+
+def alone():
+    print("Alone")
+
+def with_people():
+    print("With people")
 
 def main():
-    print("Hello again :)")
+    if len(sys.argv) > 1:
+        match sys.argv[1]:
+            case "add": add()
+            case "remove": remove()
+            case "alone": alone()
+            case _: with_people()
+    else:
+        help()
 
 if __name__ == "__main__":
     main()
