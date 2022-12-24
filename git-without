@@ -2,7 +2,19 @@
 import sys
 
 def help():
-    print("Help")
+    print("""
+git-without
+
+Usage:
+    git-without <alias-1> <...> <alias-n>           Removes people as co-authors of your next commits
+
+    git-without everyone                            Removes everyone as co-authores of next commits
+
+Example:
+    git-without bilbo gandalf
+
+    git-with everyone
+    """)
 
 def everyone():
     print("Coding alone now")

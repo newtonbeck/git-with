@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 import sys
+import yaml
 
 def help():
-    print("Help")
+    print("""
+git-with
+
+Usage:
+    git-with introduce <alias> <name> <email>       Introduces a new person to the script
+
+    git-with <alias-1> <...> <alias-n>              Configures people that will be added as co-authors to your next commits
+
+Example:
+    git-with introduce bilbo "Bilbo Baggings" bilbo.baggings@shire.org
+
+    git-with bilbo gandalf
+    """)
 
 def introduce():
     print("Introducing new people")
