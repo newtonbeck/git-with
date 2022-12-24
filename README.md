@@ -1,4 +1,4 @@
-# With
+# git-with(out)
 
 Simple CLI to add `Co-Authored-by` to your git commits.
 
