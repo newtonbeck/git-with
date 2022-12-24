@@ -4,27 +4,27 @@ Simple CLI to add `Co-Authored-by` to your git commits.
 
 ## Usage
 
-### Configuring people
+### Introducing new people to the program
 
 ```shell
-with add bilbo.baggings "Bilbo Baggins" bilbo.baggins@shire.org
-with add gandalf.thegray "Ganfalf The Gray" gandalf.thegray@wizard.com
+git-with introduce bilbo.baggings "Bilbo Baggins" bilbo.baggins@shire.org
+git-with introduce gandalf.thegray "Ganfalf The Gray" gandalf.thegray@wizard.com
 ```
 
-### Adding people to your commits
+### Coding with people
 
 ```shell
-with bilbo.baggins ganfalf.thegray
+git-with bilbo.baggins ganfalf.thegray
 ```
 
-### Removing one person from your commits
+### Stop coding with a specific person
 
 ```shell
-with remove bilbo.baggins
+git-without bilbo.baggins
 ```
 
-### Removing everyone from your commits
+### Coding alone again
 
 ```shell
-with alone
+git-without
 ```

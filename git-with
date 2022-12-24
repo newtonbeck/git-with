@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+import sys
+
+def help():
+    print("Help")
+
+def introduce():
+    print("Introducing new people")
+
+def add():
+    print("Add people to the current coding session")
+
+def main():
+    if len(sys.argv) > 1:
+        match sys.argv[1]:
+            case "introduce": introduce()
+            case _: add()
+    else:
+        help()
+
+if __name__ == "__main__":
+    main()
