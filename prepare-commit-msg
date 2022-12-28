@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+import sys
+import users
+
+def main():
+    users_in_current_session = users.get_users_in_current_session()
+
+    commit_message_file_name = sys.argv[1]
+
+    with open(commit_message_file_name, "a") as commit_message_file:
+        commit_message_file.write("\n")
+        for user in users_in_current_session:
+            commit_message_file.write("\nCo-authored-by: \"{name}\" <{email}>".replace("{name}", user['name']).replace("{email}", user['email']))
+        commit_message_file.write("\n")
+
+if __name__ == "__main__":
+    main()

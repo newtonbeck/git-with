@@ -54,6 +54,17 @@ def reset_current_session():
 
     return aliases_that_will_be_removed
 
+def get_users_in_current_session():
+    config = __read()
+
+    current_session = config['current_session']
+    all_users = config['users']
+
+    users_in_current_session = list(filter(lambda user: user['alias'] in current_session, all_users))
+
+    return users_in_current_session
+
+
 def __read():
     __create_config_file_when_it_does_not_exist()
     config_file = open(__get_config_file_path(), 'r').read()

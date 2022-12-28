@@ -2,6 +2,14 @@
 
 Simple CLI to add `Co-Authored-by` to your git commits.
 
+## Setup
+
+```
+mkdir -p ~/.git-templates/hooks
+git config --global init.templatedir '~/.git-templates'
+ln -s prepare-commit-msg ~/.git-templates/hooks/prepare-commit-msg
+```
+
 ## Usage
 
 ### Introducing new people to the program
