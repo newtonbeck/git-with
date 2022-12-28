@@ -27,6 +27,8 @@ def add(aliases):
     config['current_session'] = list(set(config['current_session'] + aliases_to_be_added))
 
     __write(config)
+    
+    return aliases_to_be_added
 
 
 def __read():

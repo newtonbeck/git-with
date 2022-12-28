@@ -20,9 +20,15 @@ Example:
 
 def introduce(alias, name, email):
     users.introduce(alias, name, email)
+    print("👋 welcome {name}! You are now introduced to become a git co-author ✍️ in the future".replace("{name}", name))
 
 def add(aliases):
-    users.add(aliases)
+    added_aliases = users.add(aliases)
+    print("🎉 now <{aliases}> will be added as co-author(s) ✍️ to your git commits 🚀".replace("{aliases}", ', '.join(added_aliases)))
+    if (len(aliases) > len(added_aliases)):
+        unknonw_aliases = list(set(aliases).union(set(added_aliases)) - set(aliases).intersection(set(added_aliases)))
+        print("⚠️ <{unknown_aliases}> won't be added as co-author(s) because they were not introduce to me yet.".replace("{unknown_aliases}", ", ".join(unknonw_aliases)))
+        print("Please introduce 🤝 them to me first")
 
 def main():
     if len(sys.argv) > 1:
