@@ -21,14 +21,16 @@ Example:
 def introduce(alias, name, email):
     users.introduce(alias, name, email)
 
-def add():
-    print("Add people to the current coding session")
+def add(aliases):
+    users.add(aliases)
 
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
             case "introduce": introduce(sys.argv[2], sys.argv[3], sys.argv[4])
-            case _: add()
+            case _: 
+                if len(sys.argv) > 2: 
+                    add(sys.argv[2:])
     else:
         help()
 

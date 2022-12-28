@@ -18,6 +18,17 @@ def introduce(alias, name, email):
 
     __write(config)
 
+def add(aliases):
+    config = __read()
+
+    aliases_already_introduced = list(map(lambda user: user['alias'], config['users']))
+    aliases_to_be_added = list(filter(lambda alias: alias in aliases_already_introduced, aliases))
+
+    config['current_session'] = list(set(config['current_session'] + aliases_to_be_added))
+
+    __write(config)
+
+
 def __read():
     __create_config_file_when_it_does_not_exist()
     config_file = open(__get_config_file_path(), 'r').read()
