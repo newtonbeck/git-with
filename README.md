@@ -7,8 +7,9 @@ Simple CLI to add `Co-Authored-by` to your git commits.
 Clone this project:
 
 ```shell
-git clone git@github.com:newtonbeck/git-with.git
+git clone https://github.com/newtonbeck/git-with.git
 cd git-with
+pip3 install -r requirements.txt
 ```
 
 Configure a global git templates directory, this directory will contain your global git hooks:
