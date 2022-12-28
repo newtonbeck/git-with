@@ -6,14 +6,14 @@ Simple CLI to add `Co-Authored-by` to your git commits.
 
 Clone this project:
 
-```
+```shell
 git clone git@github.com:newtonbeck/git-with.git
 cd git-with
 ```
 
 Configure a global git templates directory, this directory will contain your global git hooks:
 
-```
+```shell
 mkdir -p ~/.git-templates/hooks
 git config --global init.templatedir '~/.git-templates'
 ```
@@ -22,14 +22,21 @@ git config --global init.templatedir '~/.git-templates'
 
 Copy the `prepare-commit-msg` and `users.py` files to the hooks directory:
 
-```
+```shell
 cp prepare-commit-msg ~/.git-templates/hooks/prepare-commit-msg
 cp users.py ~/.git-templates/hooks/users.py
 ```
 
+Add the project's directory to your `PATH` in order to run `git-with` and `git-without` from any other directory:
+
+```shell
+echo "export PATH=PATH:$(pwd)" >> ~/.zshrc
+source ~/.zshrc
+```
+
 Finally, re-initialize git in the repositories where you want to use the `git-with` hook:
 
-```
+```shell
 cd <your repository>
 git init
 ```
