@@ -30,7 +30,7 @@ cp users.py ~/.git-templates/hooks/users.py
 Add the project's directory to your `PATH` in order to run `git-with` and `git-without` from any other directory:
 
 ```shell
-echo "export PATH=PATH:$(pwd)" >> ~/.zshrc
+echo "export PATH=\$PATH:$(pwd)" >> ~/.zshrc
 source ~/.zshrc
 ```
 
