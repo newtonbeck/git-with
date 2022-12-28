@@ -23,7 +23,7 @@ def introduce(alias, name, email):
     print("Hello {name} 👋 ! It's nice to meet you 🙇‍♂️".replace("{name}", name))
     print("You can now add {name} as a co-author to your commits by running the following command:".replace("{name}", name))
     print()
-    print("\tgit-with add {alias}".replace("{alias}", alias))
+    print("\tgit-with {alias}".replace("{alias}", alias))
     print()
 
 def add(aliases):
