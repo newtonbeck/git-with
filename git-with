@@ -41,6 +41,7 @@ def add(aliases):
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
+            case "help": help()
             case "introduce": introduce(sys.argv[2], sys.argv[3], sys.argv[4])
             case _: 
                 if len(sys.argv) > 2: 

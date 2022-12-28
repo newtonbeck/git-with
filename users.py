@@ -30,6 +30,12 @@ def add(aliases):
     
     return aliases_to_be_added
 
+def reset_current_session():
+    config = __read()
+
+    config['current_session'] = []
+
+    __write(config)
 
 def __read():
     __create_config_file_when_it_does_not_exist()

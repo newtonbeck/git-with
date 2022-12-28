@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+import users
 
 def help():
     print("""
@@ -17,7 +18,7 @@ Example:
     """)
 
 def everyone():
-    print("Coding alone now")
+    users.reset_current_session()
 
 def remove():
     print("Removing people from the current coding session")
@@ -25,6 +26,7 @@ def remove():
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
+            case "help": help()
             case "everyone": everyone()
             case _: remove()
     else:
