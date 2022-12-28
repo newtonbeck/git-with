@@ -20,15 +20,17 @@ Example:
 def everyone():
     users.reset_current_session()
 
-def remove():
-    print("Removing people from the current coding session")
+def remove(aliases):
+    users.remove(aliases)
 
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
             case "help": help()
             case "everyone": everyone()
-            case _: remove()
+            case _: 
+                if len(sys.argv) > 1: 
+                    remove(sys.argv[1:])
     else:
         help()
 

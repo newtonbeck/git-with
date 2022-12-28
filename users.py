@@ -30,6 +30,19 @@ def add(aliases):
     
     return aliases_to_be_added
 
+def remove(aliases):
+    config = __read()
+
+    current_session = set(config['current_session'])
+
+    aliases_that_will_be_removed = set(current_session.intersection(set(aliases)))
+    
+    config['current_session'] = list(current_session - aliases_that_will_be_removed)
+
+    __write(config)
+
+    return list(aliases_that_will_be_removed)
+
 def reset_current_session():
     config = __read()
 

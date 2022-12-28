@@ -44,7 +44,7 @@ def main():
             case "help": help()
             case "introduce": introduce(sys.argv[2], sys.argv[3], sys.argv[4])
             case _: 
-                if len(sys.argv) > 2: 
+                if len(sys.argv) > 1: 
                     add(sys.argv[1:])
     else:
         help()
