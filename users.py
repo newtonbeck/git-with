@@ -46,9 +46,13 @@ def remove(aliases):
 def reset_current_session():
     config = __read()
 
+    aliases_that_will_be_removed = config['current_session']
+
     config['current_session'] = []
 
     __write(config)
+
+    return aliases_that_will_be_removed
 
 def __read():
     __create_config_file_when_it_does_not_exist()

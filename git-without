@@ -18,10 +18,22 @@ Example:
     """)
 
 def everyone():
-    users.reset_current_session()
+    removed_aliases = users.reset_current_session()
+    if (removed_aliases):
+        print("🚀 <{removed_aliases}> were removed from the current coding session".replace("{removed_aliases}", ", ".join(removed_aliases)))
+        print("They won't be added as co-authors to your commits anymore")
+    print("💻 You are coding alone now")
 
 def remove(aliases):
-    users.remove(aliases)
+    removed_aliases = users.remove(aliases)
+    if (removed_aliases):
+        print("🚀 <{removed_aliases}> were removed from the current coding session".replace("{removed_aliases}", ", ".join(removed_aliases)))
+        print("They won't be added as co-authors ✍️ to your commits anymore")
+    
+    if (len(removed_aliases) < len(aliases)):
+        aliases_not_in_the_current_session = list(set(aliases).union(set(removed_aliases)) - set(aliases).intersection(set(removed_aliases)))
+        print("🤨 <{aliases_not_in_the_current_session}> were not part of the current coding session".replace("{aliases_not_in_the_current_session}", ", ".join(aliases_not_in_the_current_session)))
+        print("Therefore, nothing changed")
 
 def main():
     if len(sys.argv) > 1:
