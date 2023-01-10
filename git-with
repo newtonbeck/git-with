@@ -12,6 +12,8 @@ Usage:
 
     git-with <alias-1> <...> <alias-n>              Configures people that will be added as co-authors to your next commits
 
+    gith-with init                                  Configures your repo to use git-with, run this command inside your repo's root folder
+
 Example:
     git-with introduce bilbo "Bilbo Baggings" bilbo.baggings@shire.org
 
@@ -38,10 +40,14 @@ def add(aliases):
             print("\tgit-with introduce {unknown_alias} \"Name Surname\" email@address.com".replace("{unknown_alias}", unknown_alias))
         print()
 
+def init():
+    print("Inits the repo...")
+
 def main():
     if len(sys.argv) > 1:
         match sys.argv[1]:
             case "help": help()
+            case "init": init()
             case "introduce": introduce(sys.argv[2], sys.argv[3], sys.argv[4])
             case _: 
                 if len(sys.argv) > 1: 
