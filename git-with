@@ -2,6 +2,7 @@
 import sys
 import yaml
 import users
+import os
 
 def help():
     print("""
@@ -41,7 +42,29 @@ def add(aliases):
         print()
 
 def init():
-    print("Inits the repo...")
+    git_with_home = os.path.dirname(os.path.realpath(__file__))
+
+    if "GIT_WITH_HOME" in os.environ:
+        git_with_home = os.environ["GIT_WITH_HOME"]
+    
+    if not os.path.exists(".git/hooks"):
+        print("😱 I could not find any .git/hooks directory.")
+        print("Please go to a repository's root directory to run the git-with init command")
+        return
+
+    if os.path.exists(".git/hooks/prepare-commit-msg") and os.path.exists(".git/hooks/users.py"):
+        print("🚀 your repository is already configured to use git-with")
+        return
+
+    if os.path.exists(".git/hooks/prepare-commit-msg"):
+        print("⚠️ It seems your repository is already using another prepare-commit-msg hook")
+        print("😢 Unfortunately git-with can not work along with other prepare-commit-msg hooks")
+        return
+
+    os.symlink("{git_with_home}/prepare-commit-msg".replace("{git_with_home}", git_with_home), ".git/hooks/prepare-commit-msg")
+    os.symlink("{git_with_home}/users.py".replace("{git_with_home}", git_with_home), ".git/hooks/users.py")
+
+    print("🚀 your repository is now configured to use git-with, have fun coding in group")
 
 def main():
     if len(sys.argv) > 1:
